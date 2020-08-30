@@ -1,0 +1,41 @@
+{
+    "name": "Ext-Extension[Customizer]",
+    "version": "1.0",
+    "description": "Control Which websites to Allow and Block & Perform Actions like js based elements filtering",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "popup/popup.html",
+        "default_title": "View Details",
+        "default_icon": "images/popupIcon.png"
+    },
+    "options_page": "config/config.html",
+    "permissions": [
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls>",
+        "storage"
+    ],
+    "web_accessible_resources": [
+        "images/*.png"
+    ],
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "content/content.js"
+            ],
+            "css": [
+                "content/bootstrap-4.3.1.min.css",
+                "content/content.css"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}
